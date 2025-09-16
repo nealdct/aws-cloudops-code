@@ -1,0 +1,47 @@
+{
+  "Comment": "A document processing workflow",
+  "StartAt": "InitialProcessing",
+  "States": {
+    "InitialProcessing": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:<REGION>:<ACCOUNT-ID>:function:InitialProcessingFunction",
+      "Next": "ChooseDocumentPath"
+    },
+    "ChooseDocumentPath": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.docType",
+          "StringEquals": "Financial",
+          "Next": "ProcessFinancial"
+        },
+        {
+          "Variable": "$.docType",
+          "StringEquals": "HR",
+          "Next": "ProcessHR"
+        }
+      ],
+      "Default": "ProcessGeneric"
+    },
+    "ProcessFinancial": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:<REGION>:<ACCOUNT-ID>:function:FinancialDocFunction",
+      "Next": "Finalize"
+    },
+    "ProcessHR": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:<REGION>:<ACCOUNT-ID>:function:HRDocFunction",
+      "Next": "Finalize"
+    },
+    "ProcessGeneric": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:<REGION>:<ACCOUNT-ID>:function:GenericDocFunction",
+      "Next": "Finalize"
+    },
+    "Finalize": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:<REGION>:<ACCOUNT-ID>:function:FinalizationFunction",
+      "End": true
+    }
+  }
+}
