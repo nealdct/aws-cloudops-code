@@ -24,4 +24,4 @@ This course covers all of the following topics that are included in the AWS Cert
 - Amazon Route 53, Amazon S3, Amazon CloudFront, AWS Organizations, Amazon CloudWatch, AWS CloudTrail
 - AWS Config, AWS Service Catalog, AWS Trusted Advisor, AWS IAM, Amazon Inspector, AWS KMS, AWS CloudHSM, AWS WAF & Shield, AWS Artifact, and AWS Directory Services
 
-Learn more and [enroll in this course](https://learn.digitalcloud.training/path-player?courseid=aws-certified-cloudops-engineer-associate-video-course) now to earn your AWS Certified CloudOps Engineer Associate certification
+Learn more and [enroll in this course](https://learn.digitalcloud.training/course/aws-certified-cloudops-engineer-associate-video-course) now to earn your AWS Certified CloudOps Engineer Associate certification
